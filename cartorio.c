@@ -113,42 +113,54 @@ int invalido() {
 }
 
 int main() { 
+    setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
     int opcao = 0; //Definindo a variável como número inteiro
     int laco = 1; //Definindo a variável como número inteiro
-    setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
+    char senha[10] = ""; //Definindo variável de senha
+    int comparacao; //Definindo a variável para validar a senha
 
-    for (laco=1;  laco=1;) {
-        system("cls");
+    printf("### Cartório da EBAC ###\n\n"); //Ínicio do menu
+    printf("Login de administrador\n\nDigite a sua senha: ");
+    scanf("%s", senha); 
 
-        printf("### Cartório da EBAC ###\n\n"); //Ínicio do menu
-        printf("Escolha a opção desejada do menu:\n\n");
-        printf("\t1 - Registrar nomes\n");
-        printf("\t2 - Consultar nomes\n");
-        printf("\t3 - Deletar nomes\n");
-        printf("\t4 - Sair do sistema\n\n"); //Fim do menu
-        printf("Opção: ");
+    comparacao = strcmp(senha, "admin"); // Para comparar strings é necessário utilizar a função strcmp()
 
-        scanf("%d", &opcao); //Aloca a informação digitada pelo usuário na variável opcao
+    if (comparacao == 0) { // O parâmetro é "comparacao == 0" porque se a validação foi verdadeira, vai retornar 0
+        for (laco = 1;  laco = 1;) {
+            system("cls");
 
-        system("cls"); //Deleta todas as informações do terminal
+            printf("### Cartório da EBAC ###\n\n"); //Ínicio do menu
+            printf("Escolha a opção desejada do menu:\n\n");
+            printf("\t1 - Registrar nomes\n");
+            printf("\t2 - Consultar nomes\n");
+            printf("\t3 - Deletar nomes\n");
+            printf("\t4 - Sair do sistema\n\n"); //Fim do menu
+            printf("Opção: ");
 
-        switch(opcao) { //Ínicio da seleção do menu
-            case 1: 
-                registro(); // Chamada de funções
-                break;
-            case 2:
-                consulta();
-                break;
-            case 3:
-                deletar();
-                break;
-            case 4:
-                printf("Finalizando o sistema...");
-                return 0;
-                break;
-            default:
-                invalido();
-                break;
-        } //Fim da seleção
+            scanf("%d", &opcao); //Aloca a informação digitada pelo usuário na variável opcao
+
+            system("cls"); //Deleta todas as informações do terminal
+
+            switch(opcao) { //Ínicio da seleção do menu
+                case 1: 
+                    registro(); // Chamada de funções
+                    break;
+                case 2:
+                    consulta();
+                    break;
+                case 3:
+                    deletar();
+                    break;
+                case 4:
+                    printf("Finalizando o sistema...");
+                    return 0;
+                    break;
+                default:
+                    invalido();
+                    break;
+            } //Fim da seleção
+        }
+    } else {
+        printf("\nSenha incorreta");
     }
 }
