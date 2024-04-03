@@ -63,7 +63,7 @@ int consulta() {
     char cpf[40];
     char conteudo[200];
 
-    printf("Digite o CPF a ser consultado: ");
+    printf("Digite o CPF a ser consultado: "); 
     scanf("%s", cpf);
 
     FILE * file;
@@ -119,6 +119,7 @@ int main() {
     char senha[10] = ""; //Definindo variável de senha
     int comparacao; //Definindo a variável para validar a senha
 
+    system("cls");
     printf("### Cartório da EBAC ###\n\n"); //Ínicio do menu
     printf("Login de administrador\n\nDigite a sua senha: ");
     scanf("%s", senha); 
